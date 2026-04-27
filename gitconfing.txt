@@ -1,0 +1,10 @@
+git config --global user.name MarianaAlvesDantasDosSantos
+git config --global user.email claricealvessantos82@gmail.com
+
+criar projeto
+npx create-expo-app@latest GalloShoppingList --template blank
+
+cd GalloShoppingList
+
+npx expo start --android
+npx expo start --tunnel --android
