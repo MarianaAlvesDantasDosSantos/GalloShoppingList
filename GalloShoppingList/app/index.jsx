@@ -4,22 +4,21 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 export default function Welcome() {
   return (
     <View style={styles.container}>
-      <View style={styles.container}>
-        <View style={styles.containerImage}>
-          <Image
-            source={require('../assets/avatar.png')}
-            style={styles.avatar}
-          />
-        </View>
-        <View style={styles.content}>
-          <Text style={styles.title}>Gallo Shopping List</Text>
-          <Text style={styles.text}>
-            Monte sua lista de compras e não esqueça mais o que precisa comprar ao sair de casa!!!
-          </Text>
-          <Link style={styles.button} href={"/home"}>
-            <Text style={styles.buttonText}>Acessar</Text>
-          </Link>
-        </View>
+      <View style={styles.containerImage}>
+        <Image
+          source={require('../assets/avatar.png')}
+          style={styles.avatar}
+        />
+      </View>
+      <View style={styles.content}>
+        <Text style={styles.title}>Gallo Shopping List</Text>
+        <Text style={styles.text}>
+          Monte sua lista de compras e não esqueça mais o que precisa
+          comprar ao sair de casa!!!
+        </Text>
+        <Link style={styles.button} href={"/home"}>
+          <Text style={styles.buttonText}>Acessar</Text>
+        </Link>
       </View>
     </View>
   );
@@ -38,16 +37,16 @@ const styles = StyleSheet.create({
   avatar: {
     width: 230,
     height: 230,
-    borderRadius:115,
-    resizeMode:'cover',
+    borderRadius: 115,
+    resizeMode: 'cover',
   },
   content: {
     flex: 1,
     marginHorizontal: 5,
     backgroundColor: '#dadada',
-    bordetTopLeftRadius: 25,
+    borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
-    paddingHorizontal: '5%',
+    paddingHorizontal: '5%'
   },
   title: {
     fontSize: 30,
@@ -67,10 +66,10 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     paddingVertical: 15,
     width: '60%',
-    textAlign: center,
+    textAlign: 'center',
   },
   buttonText: {
-    fontFamily: 22,
+    fontSize: 22,
     color: '#fff',
     fontWeight: 'bold'
   },
