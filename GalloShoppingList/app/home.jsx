@@ -38,6 +38,35 @@ function addProduto () {
     Alert.alert("Adicionar Produto");
   }
 
+function markProduto(itemId) {
+const newItems = items.map((item) => {
+  if (item.id == itemId) {
+    return {...item, bought: true }
+  } 
+  return item;
+});
+setItems(newItems);
+}
+
+function unmarkProduto(itemId) {
+const newItems = items.map((item) => {
+  if (item.id == itemId) {
+    return {...item, bought: false }
+  } 
+  return item;
+});
+setItems(newItems);
+}
+
+function removeProduto(itemId) {
+
+
+}
+
+function removeAll() {
+
+}
+
   return (
     <View style={{ flex: 1, backgroundColor: '#000000' }}>
       <ImageBackground
@@ -56,7 +85,11 @@ function addProduto () {
         data={Items}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) =>
-          <ItemList item={item} />
+          <ItemList 
+        item={item}
+        markItem={markProduto}
+        unmarkItem={unmarkProduto}
+         />
       }
         />
 
