@@ -11,10 +11,40 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import ItemList from '../components/ItemList';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function Home() {
 const [textInput, setTextInput] = ('');
 const [items, setItems] = useState ([]);
+
+useEffect(() => {
+  getItemsFromDevice();
+}, []);
+
+useEffect(() => {
+  saveItemDevice();
+}, [items]);
+
+// Função para salvar a lista no storage  do aparelho 
+const saveItemDevice = async () => {
+try {
+  const itemJson  = JSOM.stringify(items);
+  await AsyncStorage.setItem('galloShoppingList', itemJson);
+} catch (error) {
+  console.log(`Erro: ${error}`);
+}
+};
+
+// Função para buscar a lista no storage do aparelho
+const getItemsFromDevice = async() => {
+  try {
+    const items = await AsyncStorage.getItem('galloShoppingList');
+    if (items != null)
+      setItems(JSON.parse(items));
+  } catch (error) {
+    console.log(`Erro: ${error}`);
+  }
+};
 
 function addProduto () {
   //console.log(textInput);
